@@ -9,27 +9,31 @@ div{
 
 /*foto de perfil*/
 
-    @media (min-width: 576px){
-        #perfilfoto{
-            position:absolute;
-            width: 15%;
-            border-radius: 100%;
-            box-shadow: 3px 3px 3px rgb(33, 24, 39);
-            left: 3%;
-            top: 600px;
-        }
 
+#perfilfoto {
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 3px 3px 3px rgb(33, 24, 39);
+    /* modificar este valor */
+  }
+  
+  @media (min-width: 576px) {
+    #perfilfoto {
+      width: 15%;
+      left: 3%;
+      top: 600px;
+      
     }
-    @media (max-width: 575px){
-        #perfilfoto{
-            position:absolute;
-            width: 30%;
-            border-radius: 100%;
-            box-shadow: 3px 3px 3px gray;
-            left: 33%;
-            top: 630px;
-        }
+  }
+  
+  @media (max-width: 575px) {
+    #perfilfoto {
+      width: 33%;
+      left: 33%;
+      top: 290px; /* modificar este valor */
+      
     }
+  }
 
 /*etiqueta*/
 

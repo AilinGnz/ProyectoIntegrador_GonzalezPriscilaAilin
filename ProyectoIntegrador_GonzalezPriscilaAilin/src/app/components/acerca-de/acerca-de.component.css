@@ -3,7 +3,7 @@
 }
 
 div {
-    background-color: rgb(208, 128, 255);
+    background-color: rgb(239, 211, 255);
     text-align: center;
 }
 
@@ -21,7 +21,7 @@ div {
     #perfilfoto {
         width: 15%;
         left: 3%;
-        top: 600px;
+        top: 850px;
 
     }
 }

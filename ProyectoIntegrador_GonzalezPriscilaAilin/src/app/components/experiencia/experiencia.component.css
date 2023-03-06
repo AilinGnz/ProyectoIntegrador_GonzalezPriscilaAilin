@@ -2,7 +2,7 @@
 
 h1,
 h3 {
-    color: rgb(255, 255, 255);
+    color: rgb(201,228,148);
     font-family: 'Concert One', cursive;
     display: inline;
 }
@@ -12,5 +12,5 @@ h3 {
 }
 
 div {
-    background-color: rgb(224, 170, 255);
+    background-color: rgb(239, 211, 255);
 }

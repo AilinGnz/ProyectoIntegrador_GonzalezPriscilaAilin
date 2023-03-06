@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Mynerve&family=Open+Sans:wght@700&display=swap');
+
+h1 {
+    color: aliceblue;
+    font-family: 'Concert One', cursive;
+}
+
+h3 {
+    color: #b85ff4;
+    font-family: 'Concert One', cursive;
+}
+
+p {
+    color: aliceblue;
+}
+
+.row {
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+
+}
+
+.contenedor {
+    width: auto;
+}
+
+.first,
+.second {
+    display: inline-block;
+    text-align: justify;
+}
+
+.img-diseño {
+    box-shadow: 10px 10px 40px #b85ff4;
+
+}

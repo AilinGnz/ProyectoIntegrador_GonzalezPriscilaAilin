@@ -1,6 +1,9 @@
 div {
-    background-color: #f5a6ff;
-}
+    
+    background: linear-gradient(to bottom, #000000, #ec71ff);
+    background-size: cover;
+    background-position: center center;
+  }
 
 app-social {
     float: right;

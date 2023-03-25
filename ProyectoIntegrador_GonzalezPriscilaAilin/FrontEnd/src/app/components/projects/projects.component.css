@@ -16,9 +16,8 @@ p {
 
 .row {
     padding: 20px;
-    background: linear-gradient(to bottom, #272d40, #8c70aa);
-    background-size: cover;
-    background-position: center center;
+    background-color: #272d40
+    
 
 }
 

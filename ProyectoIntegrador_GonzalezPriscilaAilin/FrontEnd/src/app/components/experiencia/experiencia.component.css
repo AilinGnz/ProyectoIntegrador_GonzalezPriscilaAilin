@@ -33,7 +33,7 @@ p {
 }
 
 div {
-    background: linear-gradient(to bottom,#8c70aa, #272d40 );
+    background: #272d40 ;
     background-size: cover;
     background-position: center center;
   }

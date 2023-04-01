@@ -1,5 +1,8 @@
 package com.porfoliognz.ailin.gnz.Security.Controller;
 
+import com.porfoliognz.ailin.gnz.Security.Dto.JwtDto;
+import com.porfoliognz.ailin.gnz.Security.Dto.LoginUsuario;
+import com.porfoliognz.ailin.gnz.Security.Dto.NuevoUsuario;
 import com.porfoliognz.ailin.gnz.Security.Entity.Rol;
 import com.porfoliognz.ailin.gnz.Security.Entity.Usuario;
 import com.porfoliognz.ailin.gnz.Security.Enums.RolNombre;
@@ -38,6 +41,8 @@ public class AuthController {
     UsuarioService usuarioService;
     @Autowired
     RolService rolService;
+    @Autowired
+    JwtProvider jwtProvider;
 
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
@@ -45,11 +50,11 @@ public class AuthController {
             return new ResponseEntity(new Mensaje("campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
         }
 
-        if (usuarioService.existsByNombreUsuario(nombreUsuario.getNombreUsuario())) {
+        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
             return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
         }
 
-        if (usuarioService.existsByEmail(nombreUsuario.getEmail())) {
+        if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
             return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
         }
 
@@ -70,18 +75,18 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
         }
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(
-                        loginUsuario.getnombreUsuario(), loginUsuario
+                        loginUsuario.getnuevoUsuario(), loginUsuario
                         .getPassword()));
 
         SecurityContextHolder.getContext()
-                .setAuthentication(Authentication);
+                .setAuthentication(authentication);
 
         SecurityContextHolder.getContext()
                 .setAuthentication(authentication);

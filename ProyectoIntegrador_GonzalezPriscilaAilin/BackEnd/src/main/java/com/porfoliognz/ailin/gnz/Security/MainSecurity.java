@@ -1,4 +1,3 @@
-
 package com.porfoliognz.ailin.gnz.Security;
 
 import com.porfoliognz.ailin.gnz.Security.Service.UserDetailsImp;
@@ -20,20 +19,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity (prePostEnabled = true)
-public class MainSecurity extends WebSecurityConfigurerAdapter{
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class MainSecurity extends WebSecurityConfigurerAdapter {
+
     @Autowired
     UserDetailsImp userDetailsServicesImp;
     @Autowired
     JtwEntryPoint jwtEntryPoint;
-    
+
     @Bean
-    public JwtTokenFilter jwtTokenFilter(){
-     return new JwtTokenFilter();
+    public JwtTokenFilter jwtTokenFilter() {
+        return new JwtTokenFilter();
     }
-    
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -44,10 +44,10 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling(). authenticationEntryPoint(jwtEntryPoint)
+                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-                     
+
     }
 
     @Override
@@ -62,8 +62,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-       auth.userDetailsService(userDetailsServicesImp).passwordEncoder(passwordEncoder()) ;
+        auth.userDetailsService(userDetailsServicesImp).passwordEncoder(passwordEncoder());
+        //2:05
     }
-    
-    //2:05
 }

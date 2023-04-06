@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginUsuario!: LoginUsuario;
   nombreUsuario!: string;
   password!: string;
-  roles: string[] = [];
+  roles: String[] = [];
   errMsj!: string;
 
   constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
@@ -26,28 +26,26 @@ export class LoginComponent implements OnInit {
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
-
     }
   }
 
   onLogin(): void {
-    this.loginUsuario = new LoginUsuario
-      (this.nombreUsuario, this.password);
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(data => {
       this.isLogged = true;
       this.isLoginFail = false;
       this.tokenService.setToken(data.token);
       this.tokenService.setUserName(data.nombreUsuario);
+      this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       this.router.navigate([''])
-    }, console.err => {
-      this.isLogged = false;
-      this.isLoginFail = true;
-      this.errMsj = err.error.mensaje;
-      console.log(this.errMsj);
+    },
+      err => {
+        this.isLogged = false;
+        this.isLoginFail = true;
+        this.errMsj = err.error.mensaje;
+        console.log(this.errMsj);
 
-    }))
-
-
+      })
   }
 }

@@ -17,11 +17,11 @@ public class dtoExperiencia {
         this.descripcionExp = descripcionExp;
     }
 
-    public String getNombreexp() {
+    public String getNombreExp() {
         return nombreExp;
     }
 
-    public void setNombreexp(String nombreExp) {
+    public void setNombreExp(String nombreExp) {
         this.nombreExp = nombreExp;
     }
 
@@ -31,10 +31,6 @@ public class dtoExperiencia {
 
     public void setDescripcionExp(String descripcionExp) {
         this.descripcionExp = descripcionExp;
-    }
-
-    public CharSequence getNombreExp() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     

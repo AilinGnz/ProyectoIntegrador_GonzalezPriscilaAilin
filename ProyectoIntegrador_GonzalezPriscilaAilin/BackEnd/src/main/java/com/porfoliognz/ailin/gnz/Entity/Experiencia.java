@@ -17,7 +17,7 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String nombreExp, String descripcionExp) {
+    public Experiencia(String NombreExp, String descripcionExp) {
         this.nombreExp = nombreExp;
         this.descripcionExp = descripcionExp;
     }
@@ -34,8 +34,8 @@ public class Experiencia {
         return nombreExp;
     }
 
-    public void setNombreExp(String nombreExp) {
-        this.nombreExp = nombreExp;
+    public void setNombreExp(String NombreExp) {
+        this.nombreExp = NombreExp;
     }
 
     public String getDescripcionExp() {

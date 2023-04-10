@@ -44,4 +44,8 @@ public class ServExperiencia {
     public boolean existsBynombreExp(String nombreExp) {
         return repoExperiencia.existByNombreExp(nombreExp);
     }
+
+    public boolean existsByNombreExp(CharSequence nombreExp) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

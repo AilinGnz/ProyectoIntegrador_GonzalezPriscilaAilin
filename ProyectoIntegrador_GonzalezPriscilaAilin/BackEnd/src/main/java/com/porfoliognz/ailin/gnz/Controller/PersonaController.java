@@ -1,4 +1,4 @@
-package com.porfoliognz.ailin.gnz.Controler;
+package com.porfoliognz.ailin.gnz.Controller;
 
 import com.porfoliognz.ailin.gnz.Entity.Persona;
 import com.porfoliognz.ailin.gnz.Interface.IPersonaService;

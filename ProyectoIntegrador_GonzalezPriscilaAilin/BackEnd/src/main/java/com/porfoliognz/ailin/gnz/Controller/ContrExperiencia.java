@@ -53,6 +53,8 @@ public class ContrExperiencia {
             if(servExperiencia.existsBynombreExp(dtoexp.getNombreExp()) && servExperiencia.getByNombreExp(dtoexp.getNombreexp()).get().getId() != id)
             return new ResponseEntity(new Mensaje ("Esa experiencia ya es excistente"), HttpStatus.BAD_REQUEST);
                 
+        if(StringUtils.isBlank(dtoexp.getNombreExp()))
+            return new ResponseEntity(new Mensaje("Nombre Obligatoro"), HttpStatus.BAD_REQUEST);
         
         }
 

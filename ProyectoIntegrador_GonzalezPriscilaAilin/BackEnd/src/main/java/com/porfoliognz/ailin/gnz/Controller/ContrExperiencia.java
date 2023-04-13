@@ -31,6 +31,14 @@ public class ContrExperiencia {
         List<Experiencia> list = servExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
+        if(!servExperiencia.existsById(id))
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        Experiencia experiencia = servExperiencia.getOne(id).get();
+        return new ResponseEntity(experiencia, HttpStatus.OK);
+    }
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoExp) {

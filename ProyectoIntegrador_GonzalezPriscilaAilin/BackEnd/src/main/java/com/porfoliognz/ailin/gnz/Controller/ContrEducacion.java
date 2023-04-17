@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class ContrEducacion {
 
@@ -91,4 +91,6 @@ public class ContrEducacion {
         
         return new ResponseEntity(new Mensaje("Educacion Actualizada"), HttpStatus.OK);
     }
+      
+        
 }

@@ -32,7 +32,7 @@ public class ImpPersonaService implements IPersonaService {
     }
 
     @Override
-    public void deletepersona(Long id) {
+    public void deletePersona(Long id) {
         ipersonaRepository.deleteById(id);
     }
 

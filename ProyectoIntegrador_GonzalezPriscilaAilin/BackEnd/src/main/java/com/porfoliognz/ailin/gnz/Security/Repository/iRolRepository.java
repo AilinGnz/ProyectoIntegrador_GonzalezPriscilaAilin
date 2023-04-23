@@ -2,7 +2,7 @@
 package com.porfoliognz.ailin.gnz.Security.Repository;
 
 import com.porfoliognz.ailin.gnz.Security.Entity.Rol;
-import com.porfoliognz.ailin.gnz.Security.Enums.RolNombre;
+import com.porfoliognz.ailin.gnz.Repository.Enums.RolNombre;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

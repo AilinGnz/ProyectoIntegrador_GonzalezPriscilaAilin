@@ -2,7 +2,7 @@
 package com.porfoliognz.ailin.gnz.Security.Service;
 
 import com.porfoliognz.ailin.gnz.Security.Entity.Rol;
-import com.porfoliognz.ailin.gnz.Security.Enums.RolNombre;
+import com.porfoliognz.ailin.gnz.Repository.Enums.RolNombre;
 import com.porfoliognz.ailin.gnz.Security.Repository.iRolRepository;
 import java.util.Optional;
 import javax.transaction.Transactional;

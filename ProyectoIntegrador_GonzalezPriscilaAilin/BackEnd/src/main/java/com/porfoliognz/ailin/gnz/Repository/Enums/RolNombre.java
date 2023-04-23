@@ -1,5 +1,5 @@
 
-package com.porfoliognz.ailin.gnz.Security.Enums;
+package com.porfoliognz.ailin.gnz.Repository.Enums;
 
 /**
  *

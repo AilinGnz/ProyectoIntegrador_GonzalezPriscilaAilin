@@ -1,6 +1,6 @@
 package com.porfoliognz.ailin.gnz.Security.Entity;
 
-import com.porfoliognz.ailin.gnz.Security.Enums.RolNombre;
+import com.porfoliognz.ailin.gnz.Repository.Enums.RolNombre;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

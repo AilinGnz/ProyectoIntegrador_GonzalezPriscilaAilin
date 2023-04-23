@@ -17,21 +17,30 @@ public abstract class UsuarioPrincipal implements UserDetails {
     private final String nombreUsuario;
     private final String email;
     private final String password;
-    private final Collection<? extends GrantedAuthority> authoritie;
+    private final Collection<? extends GrantedAuthority> authorities;
 
     public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authoritie) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
-        this.authoritie = authoritie;
+        this.authorities = authoritie;
     }
 
     public static UsuarioPrincipal build(Usuario usuario) {
         List<GrantedAuthority> authorities = usuario.getRoles().stream()
-                .map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors
-                .toList());
-        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail(), usuario.getPassword(), authorities) {
+                .map(rol -> new SimpleGrantedAuthority(rol
+                .getRolNombre()
+                .name()))
+                .collect(Collectors
+                        .toList());
+        return new UsuarioPrincipal(usuario
+                .getNombre(), usuario
+                        .getNombreUsuario(), usuario
+                        .getEmail(), usuario
+                        .getPassword(), authorities) {
+                            
+
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

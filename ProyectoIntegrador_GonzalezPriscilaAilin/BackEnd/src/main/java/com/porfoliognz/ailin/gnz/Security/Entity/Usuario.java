@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.porfoliognz.ailin.gnz.Security.Entity;
 
 import java.util.HashSet;
@@ -29,11 +26,11 @@ public class Usuario {
     @NotNull
     @Column(unique = true)
     private String nombreUsuario;
-
+    @NotNull
     private String email;
     @NotNull
     private String password;
-    @NotNull
+    
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();

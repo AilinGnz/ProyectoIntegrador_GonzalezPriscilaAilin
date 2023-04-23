@@ -5,7 +5,7 @@ import com.porfoliognz.ailin.gnz.Security.Dto.LoginUsuario;
 import com.porfoliognz.ailin.gnz.Security.Dto.NuevoUsuario;
 import com.porfoliognz.ailin.gnz.Security.Entity.Rol;
 import com.porfoliognz.ailin.gnz.Security.Entity.Usuario;
-import com.porfoliognz.ailin.gnz.Security.Enums.RolNombre;
+import com.porfoliognz.ailin.gnz.Repository.Enums.RolNombre;
 import com.porfoliognz.ailin.gnz.Security.Service.RolService;
 import com.porfoliognz.ailin.gnz.Security.Service.UsuarioService;
 import com.porfoliognz.ailin.gnz.Security.jwt.JwtProvider;

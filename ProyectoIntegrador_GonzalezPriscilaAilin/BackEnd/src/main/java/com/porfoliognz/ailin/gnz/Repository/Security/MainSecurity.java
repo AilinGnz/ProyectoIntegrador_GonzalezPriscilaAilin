@@ -1,4 +1,4 @@
-package com.porfoliognz.ailin.gnz.Security;
+package com.porfoliognz.ailin.gnz.Repository.Security;
 
 import com.porfoliognz.ailin.gnz.Security.Service.UserDetailsImp;
 import com.porfoliognz.ailin.gnz.Security.jwt.JtwEntryPoint;

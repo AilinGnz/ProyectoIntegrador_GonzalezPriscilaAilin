@@ -1,4 +1,4 @@
-package com.porfoliognz.ailin.gnz.Repository.Security;
+package com.porfoliognz.ailin.gnz.Security;
 
 import com.porfoliognz.ailin.gnz.Security.Service.UserDetailsImp;
 import com.porfoliognz.ailin.gnz.Security.jwt.JtwEntryPoint;
@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class MainSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserDetailsImp userDetailsServicesImp;
+    UserDetailsImp userDetailsImp;
     @Autowired
     JtwEntryPoint jwtEntryPoint;
 
@@ -42,11 +42,14 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtEntryPoint)
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
@@ -62,6 +65,6 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServicesImp).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsImp).passwordEncoder(passwordEncoder());
     }
 }

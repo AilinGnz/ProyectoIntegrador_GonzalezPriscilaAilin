@@ -50,14 +50,14 @@ public class ContrExperiencia {
             return new ResponseEntity(new Mensaje("Experiencia Existente"), HttpStatus.BAD_REQUEST);
         
 
-        Experiencia experiencia = new Experiencia(dtoExp.getDescripcionExp(), dtoExp.getDescripcionExp());
+        Experiencia experiencia = new Experiencia(dtoExp.getNombreExp(), dtoExp.getDescripcionExp());
         servExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia Añadida"), HttpStatus.OK);
 
     }
 
-    @PutMapping("/update/(id")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoExp) {
         if (!servExperiencia.existsById(id)) 
             return new ResponseEntity(new Mensaje("ID inexcistente"), HttpStatus.BAD_REQUEST);
@@ -70,7 +70,7 @@ public class ContrExperiencia {
         return new ResponseEntity(new Mensaje("Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
             
 
-        Experiencia experiencia = servExperiencia.getOne(id).get();
+        Experiencia experiencia =  servExperiencia.getOne(id).get();
         experiencia.setNombreExp(dtoExp.getNombreExp());
         experiencia.setDescripcionExp((dtoExp.getDescripcionExp()));
 

@@ -47,15 +47,15 @@ public class AuthController {
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity(new Mensaje("campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El campo o email es invalido"), HttpStatus.BAD_REQUEST);
         }
 
-        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
+        if (usuarioService.existsByNombreUsuario(nuevoUsuario .getNombreUsuario())) {
+            return new ResponseEntity(new Mensaje("Nombre de Usuario Existente"), HttpStatus.BAD_REQUEST);
         }
 
         if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Email existe"), HttpStatus.BAD_REQUEST);
         }
 
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
@@ -67,6 +67,7 @@ public class AuthController {
         if (nuevoUsuario.getRoles().contains("admin")) {
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         }
+
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
@@ -80,13 +81,11 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
         }
+
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(
-                        loginUsuario.getnuevoUsuario(), loginUsuario
+                        loginUsuario.getNombreUsuario(), loginUsuario
                         .getPassword()));
-
-        SecurityContextHolder.getContext()
-                .setAuthentication(authentication);
 
         SecurityContextHolder.getContext()
                 .setAuthentication(authentication);

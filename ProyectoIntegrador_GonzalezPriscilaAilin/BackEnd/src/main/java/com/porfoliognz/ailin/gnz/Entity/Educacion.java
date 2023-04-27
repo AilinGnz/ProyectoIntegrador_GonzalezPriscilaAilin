@@ -1,4 +1,3 @@
-
 package com.porfoliognz.ailin.gnz.Entity;
 
 import javax.persistence.Entity;
@@ -8,10 +7,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Educacion {
-    
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String nombreEdu;
     private String descripcionEdu;
@@ -47,6 +46,5 @@ public class Educacion {
     public void setDescripcionEdu(String descripcionEdu) {
         this.descripcionEdu = descripcionEdu;
     }
-    
-    
+
 }

@@ -1,6 +1,6 @@
 package com.porfoliognz.ailin.gnz.Controller;
 
-import com.porfoliognz.ailin.gnz.Dto.dtoExperiencia;
+import com.porfoliognz.ailin.gnz.Dto.DtoExperiencia;
 import com.porfoliognz.ailin.gnz.Entity.Experiencia;
 import com.porfoliognz.ailin.gnz.Security.Controller.Mensaje;
 import com.porfoliognz.ailin.gnz.Service.ServExperiencia;
@@ -41,7 +41,7 @@ public class ContrExperiencia {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoExp) {
+    public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoExp) {
         if (StringUtils.isBlank(dtoExp.getNombreExp())) 
             return new ResponseEntity(new Mensaje("Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
         
@@ -56,7 +56,7 @@ public class ContrExperiencia {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoExp) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoExp) {
         if (!servExperiencia.existsById(id)) 
             return new ResponseEntity(new Mensaje("ID inexcistente"), HttpStatus.BAD_REQUEST);
         

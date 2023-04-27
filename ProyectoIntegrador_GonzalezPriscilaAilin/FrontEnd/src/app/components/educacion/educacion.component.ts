@@ -10,9 +10,10 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
-  isLogged: boolean;
+  //isLogged: boolean;
 
   constructor(private educacionServ: EducacionService, private tokenService: TokenService) { }
+  isLogged = false;
 
   ngOnInit(): void {
     this.cargarEducacion();
@@ -22,8 +23,6 @@ export class EducacionComponent implements OnInit {
       this.isLogged = false;
     }
   }
-
-
 
   cargarEducacion(): void {
     this.educacionServ.lista().subscribe(

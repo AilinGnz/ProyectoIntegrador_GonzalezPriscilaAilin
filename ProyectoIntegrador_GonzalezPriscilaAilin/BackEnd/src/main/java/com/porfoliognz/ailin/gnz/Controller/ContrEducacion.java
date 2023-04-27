@@ -47,7 +47,7 @@ public class ContrEducacion {
     @DeleteMapping("/delete({id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!servEducacion.existsById(id)) {
-            return new ResponseEntity(new Mensaje("No existe el id"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Mensaje("ID inexistente"), HttpStatus.NOT_FOUND);
         }
         servEducacion.delete(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class ContrEducacion {
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoEducacion dtoEducacion) {
         if (StringUtils.isBlank(dtoEducacion.getNombreEdu())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Nombre obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (servEducacion.existsByNombreEdu(dtoEducacion.getNombreEdu())) {
             return new ResponseEntity(new Mensaje("Nombre Existente"), HttpStatus.BAD_REQUEST);

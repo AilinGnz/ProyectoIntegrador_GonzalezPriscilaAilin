@@ -2,17 +2,17 @@ package com.porfoliognz.ailin.gnz.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-public class dtoExperiencia {
+public class DtoExperiencia {
 
     @NotBlank
     private String nombreExp;
     @NotBlank
     private String descripcionExp;
 
-    public dtoExperiencia() {
+    public DtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreExp, String descripcionExp) {
+    public DtoExperiencia(String nombreExp, String descripcionExp) {
         this.nombreExp = nombreExp;
         this.descripcionExp = descripcionExp;
     }

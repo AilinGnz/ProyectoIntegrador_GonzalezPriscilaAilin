@@ -44,7 +44,7 @@ import { EditEducacionComponent } from './components/educacion/edit-educacion.co
     EditExperienciaComponent,
     NeweducacionComponent,
     EditEducacionComponent,
-
+    
   ],
   imports: [
     BrowserModule,

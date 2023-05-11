@@ -13,7 +13,7 @@ public class LoginUsuario {
     @NotBlank
     private String password;
     
-    //G&S
+   
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -31,9 +31,8 @@ public class LoginUsuario {
         this.password = password;
     }
 
-    public Object getnuevoUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   // public Object getnuevoUsuario() {
+    //    throw new UnsupportedOperationException("Not supported yet.");  }
     
     
 }

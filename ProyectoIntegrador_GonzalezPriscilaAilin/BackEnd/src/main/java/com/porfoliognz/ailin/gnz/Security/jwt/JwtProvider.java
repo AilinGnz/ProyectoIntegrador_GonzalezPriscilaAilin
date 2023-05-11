@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtProvider {
 
-    private final static Logger logger = LoggerFactory.getLogger(JtwEntryPoint.class);
+    private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     @Value("${Jwt.secret}")
     private String secret;
@@ -28,7 +28,7 @@ public class JwtProvider {
         UsuarioPrincipal usuarioPrincipal = (UsuarioPrincipal) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(usuarioPrincipal.getUsername())
-                .setIssuedAt(new date())
+                .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date()
                         .getTime() + expiration * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret)
@@ -43,11 +43,11 @@ public class JwtProvider {
                 .getSubject();
     }
 
-    public boolean validateToken(String Token) {
+    public boolean validateToken(String token) {
         try {
             Jwts.parser()
                     .setSigningKey(secret)
-                    .parseClaimsJws(Token);
+                    .parseClaimsJws(token);
             return true;
 
         } catch (MalformedJwtException e) {

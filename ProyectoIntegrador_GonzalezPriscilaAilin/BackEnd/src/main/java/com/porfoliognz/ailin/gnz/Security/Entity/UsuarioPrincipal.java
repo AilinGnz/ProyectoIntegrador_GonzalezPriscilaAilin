@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public abstract class UsuarioPrincipal implements UserDetails {
 
     public static UserDetails buil(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     private final String nombre;

@@ -7,7 +7,7 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class ServExperienciaService {
-  expURL = 'https://backendailingnz.onrender.com/explab/'
+  expURL = 'https://localhost:8080/explab/'
 
   constructor(private httpClient: HttpClient) { }
 

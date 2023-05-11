@@ -32,50 +32,49 @@ public class ContrExperiencia {
         List<Experiencia> list = servExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
-        if(!servExperiencia.existsById(id))
+    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {
+        if (!servExperiencia.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
         Experiencia experiencia = servExperiencia.getOne(id).get();
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
-    /*@DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") int id) {
-        if (!servExperiencia.existsById(id)) {
-            return new ResponseEntity(new Mensaje("Inexistente"), HttpStatus.NOT_FOUND);
-        }
-        servExperiencia.delete(id);
-        return new ResponseEntity(new Mensaje("Eliminado"), HttpStatus.OK);
-    }*/
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoExp) {
-        if (StringUtils.isBlank(dtoExp.getNombreExp())) 
+        if (StringUtils.isBlank(dtoExp.getNombreExp())) {
             return new ResponseEntity(new Mensaje("Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
-        
-        if (servExperiencia.existsByNombreExp(dtoExp.getNombreExp())) 
+        }
+
+        if (servExperiencia.existsByNombreExp(dtoExp.getNombreExp())) {
             return new ResponseEntity(new Mensaje("Experiencia Existente"), HttpStatus.BAD_REQUEST);
-        
+        }
+
         Experiencia experiencia = new Experiencia(dtoExp.getNombreExp(), dtoExp.getDescripcionExp());
         servExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia Añadida"), HttpStatus.OK);
 
     }
-    
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoExp) {
-        if (!servExperiencia.existsById(id)) 
+        if (!servExperiencia.existsById(id)) {
             return new ResponseEntity(new Mensaje("ID inexcistente"), HttpStatus.BAD_REQUEST);
-        
-        if (servExperiencia.existsByNombreExp(dtoExp.getNombreExp()) && servExperiencia.getByNombreExp(dtoExp.getNombreExp()).get().getId() != id) 
-            return new ResponseEntity(new Mensaje("Experiencia Excistente"), HttpStatus.BAD_REQUEST);
+        }
 
-        if (StringUtils.isBlank(dtoExp.getNombreExp())) 
-        return new ResponseEntity(new Mensaje("Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
-            
+        if (servExperiencia.existsByNombreExp(dtoExp.getNombreExp()) && servExperiencia
+                .getByNombreExp(dtoExp.getNombreExp())
+                .get()
+                .getId() != id) {
+            return new ResponseEntity(new Mensaje("Experiencia Excistente"), HttpStatus.BAD_REQUEST);
+        }
+
+        if (StringUtils.isBlank(dtoExp.getNombreExp())) {
+            return new ResponseEntity(new Mensaje("Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
+        }
 
         Experiencia experiencia = servExperiencia.getOne(id).get();
         experiencia.setNombreExp(dtoExp.getNombreExp());
@@ -83,14 +82,15 @@ public class ContrExperiencia {
 
         servExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia Actualizada"), HttpStatus.OK);
-        }
-    
-    public ResponseEntity<?> delete(@PathVariable("id") int id){
-         if (!servExperiencia.existsById(id)) 
-            return new ResponseEntity(new Mensaje("ID inexcistente"), HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        if (!servExperiencia.existsById(id)) 
+            return new ResponseEntity(new Mensaje("Inexistente"), HttpStatus.BAD_REQUEST);
         
-         servExperiencia.delete(id);
-         
-         return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
+        servExperiencia.delete(id);
+        
+        return new ResponseEntity(new Mensaje("Eliminado"), HttpStatus.OK);
     }
 }

@@ -3,16 +3,16 @@
         <div>
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="nombreExp"> Nombre de la Empresa</label>
+                    <label for="nombreExp"><h2> Nombre de la Empresa</h2></label>
                     <input type="text" class="form-control" id="nombreExp" name="nombreExp" [(ngModel)]="nombreExp" required>
 
                 </div>
                 <div class="form-group">
-                    <label for="descripcionExp"> descripcion de la tareas</label>
+                    <label for="descripcionExp"><h2>Descripcion de la tareas</h2></label>
                     <input type="text" class="form-control" id="descripcionExp" name="descripcionExp" [(ngModel)]="descripcionExp" required>
                 </div>
                 <button type="button" class="btn btn-light">
-                    Agregar Experiencia
+                   <h3> Agregar Experiencia </h3>
                 </button>
             </form>
         </div>

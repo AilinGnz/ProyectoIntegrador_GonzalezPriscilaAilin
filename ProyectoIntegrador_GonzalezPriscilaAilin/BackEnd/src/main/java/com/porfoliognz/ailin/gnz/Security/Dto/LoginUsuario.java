@@ -31,8 +31,8 @@ public class LoginUsuario {
         this.password = password;
     }
 
-   // public Object getnuevoUsuario() {
-    //    throw new UnsupportedOperationException("Not supported yet.");  }
+    public Object getnuevoUsuario() {
+        throw new UnsupportedOperationException("Not supported yet.");  }
     
     
 }

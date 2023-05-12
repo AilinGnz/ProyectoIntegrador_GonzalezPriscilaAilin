@@ -6,6 +6,10 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ *
+ * @author ailin
+ */
 @Repository
 public interface RepoEducacion extends JpaRepository<Educacion, Integer>{
     public Optional <Educacion> findByNombreEdu (String nombreEdu);

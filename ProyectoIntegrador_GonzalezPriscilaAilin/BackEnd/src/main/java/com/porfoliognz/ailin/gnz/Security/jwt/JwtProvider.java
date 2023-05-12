@@ -19,12 +19,13 @@ public class JwtProvider {
 
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
+
     @Value("${Jwt.secret}")
     private String secret;
     @Value("${Jwt.expiration}")
     private int expiration;
 
-    public String generateToken(Authentication authentication) {
+     public String generateToken(Authentication authentication) {
         UsuarioPrincipal usuarioPrincipal = (UsuarioPrincipal) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(usuarioPrincipal.getUsername())
@@ -35,7 +36,7 @@ public class JwtProvider {
                 .compact();
     }
 
-    public String getNombreUsuarioFromToken(String token) {
+     public String getNombreUsuarioFromToken(String token) {
         return Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)
@@ -53,13 +54,13 @@ public class JwtProvider {
         } catch (MalformedJwtException e) {
             logger.error("Token mal formado");
         } catch (UnsupportedJwtException e) {
-            logger.error("Token no soporta");
+            logger.error("Token no soportado");
         } catch (ExpiredJwtException e) {
             logger.error("Token expirado");
         } catch (IllegalArgumentException e) {
-            logger.error("Token vacio");
+            logger.error("Token vacío");
         } catch (SignatureException e) {
-            logger.error("Firma no valida");
+            logger.error("Firma no válida");
         }
         return false;
 

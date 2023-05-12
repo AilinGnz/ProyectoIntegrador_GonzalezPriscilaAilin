@@ -31,7 +31,7 @@ public class ContrEducacion {
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list() {
         List<Educacion> list = servEducacion.list();
-        return new ResponseEntity(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
     
     @GetMapping("/detail/{id}")
@@ -75,7 +75,10 @@ public class ContrEducacion {
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
 
         }
-        if (servEducacion.existsByNombreEdu(dtoEducacion.getNombreEdu()) && servEducacion.getByNombreEdu(dtoEducacion.getNombreEdu()).get().getId() != id) {
+        if (servEducacion.existsByNombreEdu(dtoEducacion.getNombreEdu()) && servEducacion.getByNombreEdu(dtoEducacion
+                .getNombreEdu())
+                .get()
+                .getId() != id) {
             return new ResponseEntity(new Mensaje("Nombre Existente"), HttpStatus.BAD_REQUEST);
         }
         if (StringUtils.isBlank(dtoEducacion.getNombreEdu())) {

@@ -1,3 +1,4 @@
+com\porfoliognz\ailin\gnz\Dto\DtohYs.class
 com\porfoliognz\ailin\gnz\Security\jwt\JwtProvider.class
 com\porfoliognz\ailin\gnz\Security\MainSecurity.class
 com\porfoliognz\ailin\gnz\Dto\DtoEducacion.class
@@ -9,12 +10,15 @@ com\porfoliognz\ailin\gnz\Controller\ContrExperiencia.class
 com\porfoliognz\ailin\gnz\Security\Entity\Rol.class
 com\porfoliognz\ailin\gnz\Service\ImpPersonaService.class
 com\porfoliognz\ailin\gnz\Security\Controller\AuthController.class
+com\porfoliognz\ailin\gnz\Controller\Contrhys.class
 com\porfoliognz\ailin\gnz\Entity\Persona.class
 com\porfoliognz\ailin\gnz\Security\jwt\JwtTokenFilter.class
 com\porfoliognz\ailin\gnz\Security\Service\UserDetailsImp.class
+com\porfoliognz\ailin\gnz\Service\ServhYs.class
 com\porfoliognz\ailin\gnz\Repository\Enums\RolNombre.class
 com\porfoliognz\ailin\gnz\Interface\IPersonaService.class
 com\porfoliognz\ailin\gnz\Security\Dto\NuevoUsuario.class
+com\porfoliognz\ailin\gnz\Repository\RepohYs.class
 com\porfoliognz\ailin\gnz\Security\Dto\JwtDto.class
 com\porfoliognz\ailin\gnz\Security\Controller\Mensaje.class
 com\porfoliognz\ailin\gnz\Controller\PersonaController.class
@@ -28,10 +32,11 @@ com\porfoliognz\ailin\gnz\Security\jwt\JtwEntryPoint$JwtEntryPoint.class
 com\porfoliognz\ailin\gnz\Security\Repository\iUsuarioRepository.class
 com\porfoliognz\ailin\gnz\Security\Service\RolService.class
 com\porfoliognz\ailin\gnz\AilinGnzApplication.class
+com\porfoliognz\ailin\gnz\Security\Enums\RolNombre.class
 com\porfoliognz\ailin\gnz\Security\jwt\JwtProvider$date.class
-com\porfoliognz\ailin\gnz\Security\Service\UserDatailsService.class
 com\porfoliognz\ailin\gnz\Security\jwt\JtwEntryPoint.class
 com\porfoliognz\ailin\gnz\Entity\Experiencia.class
+com\porfoliognz\ailin\gnz\Entity\hYs.class
 com\porfoliognz\ailin\gnz\Security\Service\UsuarioService.class
 com\porfoliognz\ailin\gnz\Service\ServEducacion.class
 com\porfoliognz\ailin\gnz\Service\ServExperiencia.class

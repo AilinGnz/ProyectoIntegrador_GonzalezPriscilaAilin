@@ -38,7 +38,7 @@ export class EducacionComponent implements OnInit {
         data => {
           this.cargarEducacion();
         }, err => {
-          alert("No se")
+          alert("No se elimino")
         }
       )
 

@@ -1,10 +1,14 @@
 
 package com.porfoliognz.ailin.gnz.Security.Controller;
 
+import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
  * @author ailin
  */
+
+@RestController
 public class Mensaje {
     private String mensaje;
     

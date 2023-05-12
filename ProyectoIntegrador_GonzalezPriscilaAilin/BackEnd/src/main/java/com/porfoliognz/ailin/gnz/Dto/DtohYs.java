@@ -1,11 +1,9 @@
-
 package com.porfoliognz.ailin.gnz.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-
 public class DtohYs {
-    
+
     @NotBlank
     private String nombre;
     @NotBlank
@@ -34,7 +32,5 @@ public class DtohYs {
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
     }
-    
-    
-    
+
 }

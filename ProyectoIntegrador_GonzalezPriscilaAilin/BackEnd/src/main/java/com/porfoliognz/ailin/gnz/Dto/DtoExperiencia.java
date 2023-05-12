@@ -33,5 +33,4 @@ public class DtoExperiencia {
         this.descripcionExp = descripcionExp;
     }
 
-    
 }

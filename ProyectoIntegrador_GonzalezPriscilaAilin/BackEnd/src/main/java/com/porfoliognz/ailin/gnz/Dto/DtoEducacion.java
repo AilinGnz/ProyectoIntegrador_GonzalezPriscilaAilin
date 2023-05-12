@@ -1,11 +1,11 @@
-
 package com.porfoliognz.ailin.gnz.Dto;
 
 import javax.validation.constraints.NotBlank;
 
 public class DtoEducacion {
+
     @NotBlank
-     private String nombreEdu;
+    private String nombreEdu;
     @NotBlank
     private String descripcionEdu;
 
@@ -32,6 +32,5 @@ public class DtoEducacion {
     public void setDescripcionEdu(String descripcionEdu) {
         this.descripcionEdu = descripcionEdu;
     }
-    
-    
+
 }
